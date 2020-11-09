@@ -1,0 +1,103 @@
+/*import React from 'react'
+import{ View, Button, Asyncstorage} from 'react-native'
+
+
+
+
+const StorageScreen = (props) => {
+const setData = async(Key, Value)=>{
+    try {
+        await Asyncstorage.setItem(Key, Value);
+        alert("Data saved")
+      }
+      catch (err) {
+        alert("Error");
+      }
+};
+
+const setDataJSON = async(Key, Value)=>{
+    try {
+        Value = JSON.stringify(Value);
+        await Asyncstorage.setItem(Key, Value);
+        alert("Data saved")
+      }
+      catch (err) {
+        alert("Error");
+      }
+};
+
+const getData = async(Key)=>{
+    try {
+        let data = await Asyncstorage.getItem(key);
+        if(data!=null){
+        alert("Data saved")
+        }
+        else
+        console.log("No data assigned")
+      }
+      catch (err) {
+        alert("Error");
+      }
+};
+
+const getDataJSON = async(Key)=>{
+    try {
+
+        let data = await Asyncstorage.getItem(key);
+        if(data!=null){
+        data=JSON.parse(data);
+        console.log(data)
+        }
+        else
+        console.log("No data assigned")
+      }
+      catch (err) {
+        alert("Error");
+      }
+};
+
+const removeData = async(Key)=>{
+    try {
+        await Asyncstorage.removeItem(key);
+        
+        alert("removed")
+      }
+      catch (err) {
+        alert("Error");
+      }
+};
+
+
+
+
+    return (
+      <View>
+          <Button
+            title="Save Data"
+            onPress={function (){
+                setData("courseinfo",{ID:'123', program:'swe', coursname:'swerr'});
+                }
+            }
+          /> 
+
+            <Button
+            title="Retrieve Data"
+            onPress={function (){
+                retrieveData('courseinfo');
+                }
+            }
+           
+          /> 
+
+            <Button
+            title="Remove Data"
+            onPress={function (){
+                removeData('courseinfo');
+                }
+            }
+           
+          /> 
+        </View>
+    )
+}
+export default StorageScreen*/

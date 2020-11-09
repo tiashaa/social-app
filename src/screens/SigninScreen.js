@@ -29,7 +29,7 @@ const SigninScreen = (props)=>{
                 icon={<Entypo name="login" size={24} color="black" />}
                 title='Sign In'
                 type='solid'
-                onPress={function (){auth.Isloggedin(true);}}
+                onPress={function (){auth.IsLoggedIn(true);}}
                 />
 
                 <Button

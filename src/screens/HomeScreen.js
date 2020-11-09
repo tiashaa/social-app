@@ -18,7 +18,7 @@ const HomeScreen = (props)=>{
             <Button>
                 Type: outline
                 Title: "log out"
-                onPress={function (){auth.Isloggedin(false);}}
+                onPress={function (){auth.IsLoggedIn(false);}}
             </Button>
         </View>)}
 

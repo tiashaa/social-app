@@ -1,5 +1,5 @@
 import React, { useState ,useEffect} from "react";
-import { SafeAreaView, ScrollView,TouchableOpacity, FlatList, View, StyleSheet } from "react-native";
+import {ImageBackground, SafeAreaView, ScrollView, FlatList, View, StyleSheet } from "react-native";
 import {
   Card,
   Button,
@@ -8,28 +8,30 @@ import {
   Input,
   Header,
 } from "react-native-elements";
-import ShowPostComponent from "../components/ShowPostComponent";
-import WritePostComponent from "../components/WritePostComponent";;
+
+import WriteCommentComponent from "../components/WriteCommentComponent";
+import ShowCommentComponent from "../components/ShowCommentComponent";
 import {getDataJson, getAllindex} from '../functions/AsyncStorageFunctions';
-import { AuthContext } from "../providers/AuthProvider"
+import { AuthContext } from "../providers/AuthProvider";
 
 
-const HomeScreen = (props) => {
+const CommentScreen = (props) => {
+  const content=props.route.params.content;
 
-  const [Post, setPost]=useState([]);
+  const [Comment, setComment]=useState([]);
   const [Render, setRender]=useState(false);
-  const getPost = async () =>{
+  const getComment = async () =>{
     setRender(true);
     let keys=await getAllindex();
-    let Allposts=[];
+    let Allcomments=[];
     if(keys!=null){
       for (let k of keys){
-          if(k.startsWith("pid#")){
-            let post= await getDataJson(k);
-            Allposts.push(post);
+          if(k.startsWith("cid#") && k.endsWith(content.pid)){
+            let comments= await getDataJson(k);
+            Allcomments.push(comments);
           }
         }
-        setPost(Allposts);
+        setComment(Allcomments);
       }
       else{
         console.log("No post to show");
@@ -38,7 +40,7 @@ const HomeScreen = (props) => {
     }
 
   useEffect(()=>{
-    getPost();
+    getComment();
   },[]);
 
   return (
@@ -64,17 +66,17 @@ const HomeScreen = (props) => {
               },
             }}/>
 
-          
+           
 
-          <WritePostComponent user={auth.CurrentUser}/>
+          <WriteCommentComponent user={auth.CurrentUser} postcontent={content}/>
 
           <FlatList
-          data={Post}
-          onRefresh={getPost}
+          data={Comment}
+          onRefresh={getComment}
           refreshing={Render}
           renderItem={function({item}){
             return(
-              <ShowPostComponent title={item} user={auth.CurrentUser} link={props.navigation}
+              <ShowCommentComponent title={item}
               />
             );
           }}
@@ -82,6 +84,7 @@ const HomeScreen = (props) => {
           >
           </FlatList> 
 
+          
 
         </SafeAreaView>
       )}
@@ -104,4 +107,4 @@ const styles = StyleSheet.create({
 },
 });
 
-export default HomeScreen;
+export default CommentScreen;

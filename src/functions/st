@@ -1,4 +1,4 @@
-/*import React from 'react'
+import React from 'react'
 import{ View, Button, Asyncstorage} from 'react-native'
 
 
@@ -100,4 +100,4 @@ const removeData = async(Key)=>{
         </View>
     )
 }
-export default StorageScreen*/
+export default StorageScreen

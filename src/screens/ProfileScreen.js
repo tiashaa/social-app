@@ -76,7 +76,7 @@ const ProfileScreen = (props) => {
 
          
             <Card>
-            <Image style={styles.imageStyle1} source={require('./../../../../img/im3.jpg')}/>
+            
             <Text style={styles.textStyle2}> {auth.CurrentUser.name}   </Text>  
             <View style={{ flexDirection: "row", justifyContent: "space-evenly", marginBottom: 40 }}>
             <Button

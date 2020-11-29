@@ -40,14 +40,14 @@ const SigninScreen=(props)=>{
                 title="  Sign In"
                 type="solid"
                 onPress={async function(){
-                    let UserData = await getDataJson(Email);
-                    if(UserData.password==Password){
+                     await getDataJson(Email).then((UserData)=>{if(UserData.password==Password){
                         auth.setIsloggedIn(true);
                         auth.setCurrentUser(UserData);
                     }
                     else{
                         alert("Wrong Email/Password !!");
-                    }
+                    }});
+                    
                 }}
                 /> 
                 <Button

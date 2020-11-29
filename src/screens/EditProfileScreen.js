@@ -32,7 +32,7 @@ const [Worksat, setWorksat]=useState("");
             }}/>
          
             <Card >
-            <Image style={styles.imageStyle1} source={require('./../../../../img/im2.jpg')}/>
+            
             <Text style={styles.textStyle2}> {auth.CurrentUser.name}   </Text>  
             <View style={{ flexDirection: "row", justifyContent: "space-evenly", marginBottom: 40 }}>
             </View>  
